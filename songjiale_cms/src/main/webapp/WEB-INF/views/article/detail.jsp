@@ -12,7 +12,6 @@
 	var articleId = "${id}";
 </script>
 </head>
-
 <body>
 	<nav class="nav justify-content-start" style="background-color: #222;">
 	<c:if test="${USER_SESSION_ID!=null && USER_SESSION_ID.headimg!=null }">
@@ -61,6 +60,7 @@
 						    <button type="button" class="btn btn-primary" onclick="addComment();">评论</button>
 						  </div>
 					</div>
+					
 				</div>
 			</div>
 			

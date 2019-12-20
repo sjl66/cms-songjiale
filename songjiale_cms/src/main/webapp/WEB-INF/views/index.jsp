@@ -34,7 +34,7 @@
 			<a class="nav-link" href="/user/login">登录</a>
 		</c:if>
 	</nav>
-	<div class="container-fluid">
+	<div class="container-fluid" style="height: 1000px">
 		<div class="row offset-1" style="margin-top: 15px;">
 			<div class="col-1">
 				<!-- 左侧导航 -->
@@ -52,9 +52,9 @@
 			<div class="col-6" >
 				
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
-				  <div class="carousel-inner" style="width: 800px; height: 300px">
+				  <div class="carousel-inner">
 					  <c:forEach items="${slideList }" var="item" varStatus="s">
-						  <div class="carousel-item <c:if test="${s.index==0 }">active</c:if>">
+						  <div class="carousel-item <c:if test="${s.index==0 }">active</c:if>"  style="width: 800px; height: 300px">
 						      <a href="${item.url }" target="_blank"><img src="${item.picture }" class="d-block w-100" alt="${item.title }"></a>
 						  </div>
 					  </c:forEach>
@@ -128,7 +128,7 @@
 	</div>
 	<script type="text/javascript" src="/js/jquery.min.1.12.4.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" >
 		function gotoPage(pageNum){
 			if(channelId==''){
 				window.location.href="/hot/"+pageNum+".html"

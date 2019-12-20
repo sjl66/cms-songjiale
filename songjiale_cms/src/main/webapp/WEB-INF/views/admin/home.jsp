@@ -14,7 +14,10 @@
 <script charset="utf-8" src="/kindeditor/lang/zh-CN.js"></script>
 <script charset="utf-8" src="/kindeditor/plugins/code/prettify.js"></script>
 </head>
-
+<script>
+	KindEditor.ready(function(K) {});
+</script>
+</head>
 <body>
 	<!-- 头信息 -->
 	<jsp:include page="../common/admin/head.jsp"></jsp:include>
@@ -34,7 +37,7 @@
 <script type="text/javascript" src="/js/jquery.min.1.12.4.js"></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/cms.js"></script>
-
-
+<script type="text/javascript" src="/js/ajaxfileupload.js"></script>
+<script type="text/javascript" src="/js/jquery-validation-1.19.1/jquery.validate.min.js"></script>
 </body>
 </html>
