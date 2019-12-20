@@ -8,64 +8,85 @@ import com.songjiale.cms.pojo.User;
 
 public interface UserDao {
 	/**
-	 * 
-	* @Title: gerByid 
-	* @Description: TODO 根据id,查询对象
-	* @param @param id
-	* @param @return    设定文件 
-	* @return User    返回类型 
-	* @throws
+	 * @Title: selectById   
+	 * @Description: 根据Id，查询对象   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: User      
+	 * @throws
 	 */
-	User selectByid(Integer id);
+	User selectById(@Param("id") Integer id);
 	/**
-	 * 
-	* @Title: select 
-	* @Description: TODO 根据User查询列表
-	* @param @param user
-	* @param @return    设定文件 
-	* @return List<User>    返回类型 
-	* @throws
+	 * @Title: select   
+	 * @Description: 根据User查询列表  
+	 * @param: @param user
+	 * @param: @return      
+	 * @return: List<User>      
+	 * @throws
 	 */
-	List<User> select(@Param("user")User user);
+	List<User> select(@Param("user") User user);
 	/**
-	 * 
-	* @Title: insert 
-	* @Description: TODO 插入一条数据
-	* @param @param user
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: count   
+	 * @Description: 查询数据条数   
+	 * @param: @param user
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int insert(@Param("user")User user);
+	int count(@Param("user") User user);
 	/**
-	 * 
-	* @Title: update 
-	* @Description: TODO 更新一条是数据记录
-	* @param @param user
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: insert   
+	 * @Description: 插入一条记录   
+	 * @param: @param user
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int update(@Param("user")User user);
+	int insert(@Param("user") User user);
 	/**
-	 * 
-	* @Title: deleteByid 
-	* @Description: TODO 根据Id删除记录
-	* @param @param user
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: update   
+	 * @Description: 根据Id更新记录 
+	 * @param: @param user
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int deleteByid(@Param("id")Integer id);
+	int update(@Param("user") User user);
 	/**
-	 * 
-	* @Title: deleteByids 
-	* @Description: TODO 根据ids批量删除记录
-	* @param @param ids
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: deleteById   
+	 * @Description: 根据Id删除记录   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int deleteByids(@Param("ids")String ids);
-
+	int deleteById(@Param("id") Integer id);
+	/**
+	 * @Title: deleteByIds   
+	 * @Description: 根据Ids批量删除记录   
+	 * @param: @param ids "1,2,3"
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int deleteByIds(@Param("ids") String ids);
+	/**
+	 * @Title: updateLocked   
+	 * @Description: 修改locked字段值   
+	 * @param: @param userId
+	 * @param: @param locked
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int updateLocked(@Param("userId") Integer userId, @Param("locked")  int locked);
+	/**
+	 * @Title: selectByUsername   
+	 * @Description: 根据登录名，查询用户  
+	 * @param: @param username
+	 * @param: @return      
+	 * @return: User      
+	 * @throws
+	 */
+	User selectByUsername(String username);
 }

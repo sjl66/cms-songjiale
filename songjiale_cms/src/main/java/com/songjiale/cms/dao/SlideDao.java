@@ -4,71 +4,70 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.songjiale.cms.pojo.Article;
-import com.songjiale.cms.pojo.Article_Vote;
 import com.songjiale.cms.pojo.Slide;
-import com.songjiale.cms.pojo.User;
 
 public interface SlideDao {
 	/**
-	 * 
-	* @Title: gerByid 
-	* @Description: TODO 根据id,查询对象
-	* @param @param id
-	* @param @return    设定文件 
-	* @return User    返回类型 
-	* @throws
+	 * @Title: selectById   
+	 * @Description: 根据Id，查询对象   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: Slide      
+	 * @throws
 	 */
-	User selectByid(Integer id);
+	Slide selectById(@Param("id") Integer id);
 	/**
-	 * 
-	* @Title: select 
-	* @Description: TODO 根据User查询列表
-	* @param @param slide
-	* @param @return    设定文件 
-	* @return List<slide>    返回类型 
-	* @throws
+	 * @Title: select   
+	 * @Description: 根据Slide查询列表  
+	 * @param: @param slide
+	 * @param: @return      
+	 * @return: List<Slide>      
+	 * @throws
 	 */
-	List<Article> select(@Param("slide")Slide slide);
+	List<Slide> select(@Param("slide") Slide slide);
 	/**
-	 * 
-	* @Title: insert 
-	* @Description: TODO 插入一条数据
-	* @param @param slide
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: count   
+	 * @Description: 查询数据条数   
+	 * @param: @param slide
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int insert(@Param("slide")Slide slide);
+	int count(@Param("slide") Slide slide);
 	/**
-	 * 
-	* @Title: update 
-	* @Description: TODO 更新一条是数据记录
-	* @param @param slide
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: insert   
+	 * @Description: 插入一条记录   
+	 * @param: @param slide
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int update(@Param("slide")Slide slide);
+	int insert(@Param("slide") Slide slide);
 	/**
-	 * 
-	* @Title: deleteByid 
-	* @Description: TODO 根据Id删除记录
-	* @param @param slide
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: update   
+	 * @Description: 根据Id更新记录 
+	 * @param: @param slide
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int deleteByid(@Param("id")Integer id);
+	int update(@Param("slide") Slide slide);
 	/**
-	 * 
-	* @Title: deleteByids 
-	* @Description: TODO 根据ids批量删除记录
-	* @param @param ids
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: deleteById   
+	 * @Description: 根据Id删除记录   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int deleteByids(@Param("ids")String ids);
-
+	int deleteById(@Param("id") Integer id);
+	/**
+	 * @Title: deleteByIds   
+	 * @Description: 根据Ids批量删除记录   
+	 * @param: @param ids "1,2,3"
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int deleteByIds(@Param("ids") String ids);
 }

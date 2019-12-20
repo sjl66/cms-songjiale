@@ -5,68 +5,136 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.songjiale.cms.pojo.Article;
-import com.songjiale.cms.pojo.User;
 
 public interface ArticleDao {
 	/**
-	 * 
-	* @Title: gerByid 
-	* @Description: TODO 根据id,查询对象
-	* @param @param id
-	* @param @return    设定文件 
-	* @return User    返回类型 
-	* @throws
+	 * @Title: selectById   
+	 * @Description: 根据Id，查询对象   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: User      
+	 * @throws
 	 */
-	User selectByid(Integer id);
+	Article selectById(@Param("id") Integer id);
 	/**
-	 * 
-	* @Title: select 
-	* @Description: TODO 根据User查询列表
-	* @param @param article
-	* @param @return    设定文件 
-	* @return List<article>    返回类型 
-	* @throws
+	 * @Title: select   
+	 * @Description: 根据User查询列表  
+	 * @param: @param user
+	 * @param: @return      
+	 * @return: List<User>      
+	 * @throws
 	 */
-	List<Article> select(@Param("article")Article article);
+	List<Article> select(@Param("article") Article article);
 	/**
-	 * 
-	* @Title: insert 
-	* @Description: TODO 插入一条数据
-	* @param @param user
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: count   
+	 * @Description: 查询数据条数   
+	 * @param: @param user
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int insert(@Param("article")Article article);
+	int count(@Param("article") Article article);
 	/**
-	 * 
-	* @Title: update 
-	* @Description: TODO 更新一条是数据记录
-	* @param @param article
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: insert   
+	 * @Description: 插入一条记录   
+	 * @param: @param user
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int update(@Param("article")Article article);
+	int insert(@Param("article") Article article);
 	/**
-	 * 
-	* @Title: deleteByid 
-	* @Description: TODO 根据Id删除记录
-	* @param @param article
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: update   
+	 * @Description: 根据Id更新记录 
+	 * @param: @param user
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int deleteByid(@Param("id")Integer id);
+	int update(@Param("article") Article article);
 	/**
-	 * 
-	* @Title: deleteByids 
-	* @Description: TODO 根据ids批量删除记录
-	* @param @param ids
-	* @param @return    设定文件 
-	* @return int    返回类型 
-	* @throws
+	 * @Title: deleteById   
+	 * @Description: 根据Id删除记录   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
 	 */
-	int deleteByids(@Param("ids")String ids);
-
+	int updateDeletedById(@Param("id") Integer id);
+	/**
+	 * @Title: deleteByIds   
+	 * @Description: 根据Ids批量删除记录   
+	 * @param: @param ids "1,2,3"
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int updateDeletedByIds(@Param("ids") String ids);
+	/**
+	 * @Title: updateStatus   
+	 * @Description: 修改文章状态   
+	 * @param: @param id
+	 * @param: @param status
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int updateStatus(@Param("id") Integer id,@Param("status") Integer status);
+	/**
+	 * @Title: addHot   
+	 * @Description: 热点字段+1   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: int      
+	 * @throws
+	 */
+	int addHot(@Param("id") Integer id);
+	/**
+	 * @Title: selectByIds   
+	 * @Description: 根据Ids查询文章  
+	 * @param: @param ids
+	 * @param: @return      
+	 * @return: List<Article>      
+	 * @throws
+	 */
+	List<Article> selectByIds(@Param("ids") String ids);
+	/**
+	 * @Title: selectListByChannelId   
+	 * @Description: 根据频道Id查询文章   
+	 * @param: @param channelId
+	 * @param: @param aritcleId 文章Id不能等于该Id
+	 * @param: @param num 文章条数
+	 * @param: @return      
+	 * @return: List<Article>      
+	 * @throws
+	 */
+	List<Article> selectListByChannelId(@Param("channelId") Integer channelId, @Param("articleId") Integer articleId, @Param("num") int num);
+	/**
+	 * @Title: selectByHot   
+	 * @Description: 查询热点文章   
+	 * @param: @return      
+	 * @return: List<Article>      
+	 * @throws
+	 */
+	List<Article> selectByHot();
+	/**
+	 * @Title: selectListByChannelIdAndCateId   
+	 * @Description: 根据频道Id和分类Id查询文章   
+	 * @param: @param channelId
+	 * @param: @param cateId
+	 * @param: @param pageNo
+	 * @param: @return      
+	 * @return: List<Article>      
+	 * @throws
+	 */
+	List<Article> selectListByChannelIdAndCateId(@Param("channelId") Integer channelId, @Param("cateId") Integer cateId);
+	/**
+	 * @Title: selectNewList   
+	 * @Description: 查询最新文章   
+	 * @param: @param num
+	 * @param: @return      
+	 * @return: List<Article>      
+	 * @throws
+	 */
+	List<Article> selectNewList(@Param("num") int num);
 }
