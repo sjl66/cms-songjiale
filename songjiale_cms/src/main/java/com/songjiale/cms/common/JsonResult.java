@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @Description:定义json接口的统一返回结果  
- * @author: zhanggm1002
+ * @author: songjiale
  * @date:   2019年12月13日 下午3:05:33
  */
 public class JsonResult implements Serializable{
