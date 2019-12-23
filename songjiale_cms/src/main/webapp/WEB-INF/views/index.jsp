@@ -7,13 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/index.css" rel="stylesheet">
-<style type="text/css">
+<script type="text/javascript">
+
+	var channelId='${channelId}';
+
 	
-</style>
+	var cateId = '${cateId}';
+</script>
 <title>前台首页</title>
 </head>
 <body>
-	<nav class="nav justify-content-start" style="background-color: #222;">
+	<nav class="nav justify-content-start" style="background-color: #222;" >	
 		<c:if test="${USER_SESSION_ID!=null && USER_SESSION_ID.headimg!=null }">
 			<a class="nav-link navbar-brand" href="#">
 				<img src="${USER_SESSION_ID.headimg }" width="30" height="30" alt="">
@@ -34,7 +38,7 @@
 			<a class="nav-link" href="/user/login">登录</a>
 		</c:if>
 	</nav>
-	<div class="container-fluid" style="height: 1000px">
+	<div class="container-fluid"  style="height: 1000px;" >
 		<div class="row offset-1" style="margin-top: 15px;">
 			<div class="col-1">
 				<!-- 左侧导航 -->
@@ -130,7 +134,7 @@
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 	<script type="text/javascript" >
 		function gotoPage(pageNum){
-			if(channelId==''){
+			if(channelId==0){
 				window.location.href="/hot/"+pageNum+".html"
 			}else{
 				window.location.href="/"+channelId+"/"+cateId+"/"+pageNum+".html"

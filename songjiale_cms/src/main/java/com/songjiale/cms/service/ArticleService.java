@@ -130,4 +130,13 @@ public interface ArticleService {
 	 * @throws
 	 */
 	List<Article> getNewList(int num);
+	/**
+	 * @return 
+	 * @Title: addTousu   
+	 * @Description: 投诉+1  
+	 * @param:       
+	 * @return: void      
+	 * @throws
+	 */
+	int addTousu(Integer id);
 }

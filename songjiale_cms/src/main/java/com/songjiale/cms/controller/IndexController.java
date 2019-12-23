@@ -76,7 +76,14 @@ public class IndexController {
 	public String articleDetail(@PathVariable Integer id,Model model) {
 		/** 查询文章 **/
 		Article article = articleService.getById(id);
-		model.addAttribute("article", article);
+		Integer status = article.getStatus();
+		if(status==3) {
+			return "error";
+		}
+		
+			model.addAttribute("article", article);
+		
+		
 		/** 查询用户 **/
 		User user = userService.getById(article.getUserId());
 		model.addAttribute("user", user);

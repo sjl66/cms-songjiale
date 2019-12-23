@@ -25,6 +25,12 @@
 			    <!-- <label for="exampleInputPassword1">密码</label> -->
 			    <input type="password" class="form-control" id="password" name="password"  placeholder="请输入用户名...">
 			  </div>
+			  
+			 <!--  <div class="form-group form-check">
+				    <input type="checkbox" class="form-check-input" value="1" id="isMima" name="isMima">
+				    <label class="form-check-label" for="exampleCheck1" >记住密码</label>
+              </div>
+		 -->
 			  <input type="button" class="btn btn-primary" value="登录" onclick="login()">
 			  <!-- <label for="exampleInputPassword1">没有帐号，去<a href="/">注册</a></label> -->
 			</form>

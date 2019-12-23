@@ -1,5 +1,6 @@
 package com.songjiale.cms.controller.admin;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bawei.commons.utils.StringUtil;
 import com.songjiale.cms.common.CmsConstant;
 import com.songjiale.cms.common.CmsMd5Util;
+import com.songjiale.cms.common.CookieUtil;
 import com.songjiale.cms.common.JsonResult;
 import com.songjiale.cms.pojo.User;
 import com.songjiale.cms.service.UserService;
@@ -55,6 +57,12 @@ public class AdminUserController {
 		
 		if(string2md5.equals(userInfo.getPassword())) {
 			session.setAttribute(CmsConstant.UserAdminSessionKey, userInfo);
+			//记住密码
+		/*	if("1".equals(user.getIsMima())) {
+				int maxAge=1000*60*60*24;
+				CookieUtil.addCookie(response, "username", user.getUsername(), null,null, maxAge);
+			}
+			*/
 			return JsonResult.sucess();
 		}
 		System.err.println("1111");

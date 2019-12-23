@@ -60,6 +60,7 @@
 	      	<button type="button" class="btn btn-primary" onclick="check('${item.id}')">审核</button>
 	      	<button type="button" class="btn btn-primary" onclick="addHot('${item.id}')">加热</button>
 	      	<button type="button" class="btn btn-primary" onclick="view('${item.id}')">查看</button>
+	      	<button type="button" class="btn btn-primary" onclick="jinKan('${item.id}')">禁止</button>
 	      </td>
 	    </tr>
    	</c:forEach>
@@ -142,6 +143,14 @@
 	
 	function view(id){
 		window.open("/article/"+id+".html");
+	}	
+	function jinKan(id){
+		$.post("/admin/article/update/status",{id:id,status:3},function(res){
+			$('#checkModal').modal('hide');
+			$('.alert').html("已禁止查看");
+			$('.alert').show();
+			query();
+		});
 	}
 	
 </script>

@@ -43,8 +43,8 @@
 				<div style="margin-top: 10px;margin-bottom: 10px;font-weight: bold;color: #777;">
 					<span>${user.nickname }</span> 
 					<span><fmt:formatDate value="${article.created}" pattern="yyyy-MM-dd HH:mm:ss"/></span>
-					<span style="font-size: 24px;">收藏</span>
-					<span style="font-size: 24px;">已收藏</span>
+					<span style="font-size: 24px;color:red;"  onclick="tousuShow()">投诉</span>
+					
 				</div>
 				<div style="font-size: 24">
 					${article.content }
@@ -62,8 +62,10 @@
 					</div>
 					
 				</div>
-			</div>
-			
+				
+				
+				
+			</div>			
 			<div class="col-3">
 				<c:if test="${articleList.size()>0 }">
 					<div class="right">
@@ -83,6 +85,30 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal" tabindex="-1" role="dialog" id="myModal" name="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">投诉原因</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">       
+      <div class="form-group">
+   
+    <textarea class="form-control" rows="3" id="comment1" name="comment1"></textarea>
+  </div>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" onclick="tousu()">确定投诉</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 	<script type="text/javascript" src="/js/jquery.min.1.12.4.js"></script>
 	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
@@ -107,6 +133,32 @@
 				}
 			})
 		}
+		function tousuShow() {	
+			
+			$.post("/user/isLogin",null,function(arr){
+				if(arr.result){
+					$("#myModal").modal('show');
+				}else{
+					alert("请先登录，在投诉");
+					window.location.href="/user/login";
+				}
+			} )			
+		}
+		function tousu() {
+			var comment1 = $("#comment1").val();
+			alert(comment1)
+			$.post("/tousu/add",{content:comment1,articleId:articleId},function(arr){
+				
+				if(arr){
+					alert("投诉成功");
+					$("#myModal").modal("hide");
+				}else{
+					alert("投诉失败");
+				}
+				}
+			 )			
+		}
+		
 	</script>
 </body>
 </html>
